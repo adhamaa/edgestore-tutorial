@@ -28,10 +28,7 @@ export default function Page() {
     <div className="flex flex-col items-center m-6 gap-2">
       <MultiFileDropzone
         value={files}
-        onChange={(fails) => {
-          console.log('fails:', fails)
-          setFiles(fails);
-        }}
+        onChange={setFiles}
         onFilesAdded={async (addedFiles) => {
           setFiles([...files, ...addedFiles]);
         }}
