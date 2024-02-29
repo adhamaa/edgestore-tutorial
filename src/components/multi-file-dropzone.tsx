@@ -11,7 +11,7 @@ import * as React from 'react';
 import { DropzoneOptions, useDropzone } from 'react-dropzone';
 import { twMerge } from 'tailwind-merge';
 
-const variants = {
+const variantsStyles = {
   base: 'relative rounded-md p-4 w-96 flex justify-center items-center flex-col cursor-pointer border border-dashed border-gray-300 transition-colors duration-200 ease-in-out',
   active: 'border-2',
   disabled:
@@ -96,11 +96,11 @@ const MultiFileDropzone = React.forwardRef<HTMLInputElement, InputProps>(
     const dropZoneClassName = React.useMemo(
       () =>
         twMerge(
-          variants.base,
-          isFocused && variants.active,
-          disabled && variants.disabled,
-          (isDragReject ?? fileRejections[0]) && variants.reject,
-          isDragAccept && variants.accept,
+          variantsStyles.base,
+          isFocused && variantsStyles.active,
+          disabled && variantsStyles.disabled,
+          (isDragReject ?? fileRejections[0]) && variantsStyles.reject,
+          isDragAccept && variantsStyles.accept,
           className,
         ).trim(),
       [
